@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Alejandro Rodríguez</title>
+    <description>My stuff.</description>
+    <link>http://alexrs.me</link>
+    <atom:link href="http://alexrs.me/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>New year, new projects</title>
+        
+        
+          <description>&lt;p&gt;The new year comes with new projects. To be honest, I don&amp;#39;t believe in new year resolutions, but new projects should be eventually started, and this is a perfect excuse to do so.&lt;/p&gt;
+</description>
+        
+        <pubDate>Fri, 29 Jan 2016 19:00:00 +0100</pubDate>
+        <link>http://alexrs.me/2016/New-year-new-projects/</link>
+        <guid isPermaLink="true">http://alexrs.me/2016/New-year-new-projects/</guid>
+      </item>
+    
+  </channel>
+</rss>
