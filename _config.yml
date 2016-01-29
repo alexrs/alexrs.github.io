@@ -1,28 +1,41 @@
-title: Long Haul
-description: Long Form Jekyll theme built with SASS / COMPASS / SUSY
+name: Alejandro Rodríguez
+description: My stuff.
+meta_description: "Alejandro Rodríguez's Blog"
 
-url: http://brianmaierjr.github.com/long-haul
-baseurl: ""
-paginate_path: "blog/page:num/"
-permalink: blog/:title/
+aboutPage: true
 
 markdown: redcarpet
 highlighter: pygments
-gems: [jekyll-paginate]
-paginate: 5
 
-navigation:
- - title: Home
-   url: /index.html
- - title: About
-   url: /about
- - title: Contact
-   url: /contact
+paginate: 20
+baseurl: /
+domain_name: 'http://alexrs.me'
+disqus: false
+disqus_shortname: 'your-disqus-shortname'
 
-social:
-   github: brianmaierjr
-   twitter: brianmaierjr
-   facebook: brianmaierjr
-   email: brimaidesigns@gmail.com
+# Details for the RSS feed generator
+url:            'http://alexrs.me'
+author:         'Alejandro Rodríguez'
+authorTwitter:  'alexrs95'
 
-google_analytics: "UA-58263416-1"
+permalink:       /:year/:title/
+
+defaults:
+    -
+        scope:
+            path: "" # empty string for all files
+            type: pages
+        values:
+            layout: default
+    -
+        scope:
+            path: "" # empty string for all files
+            type: posts
+        values:
+            layout: post
+    -
+        scope:
+            path: ""
+            type: drafts
+        values:
+            layout: post
