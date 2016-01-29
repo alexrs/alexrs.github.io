@@ -125,7 +125,7 @@ nav.main-nav a {
 	top: 8px;
 	right: 6px;
 	padding: 8px 12px;
-	color: #5badf0;
+	color: #009688;
 	font-size: 13px;
 	/*font-weight: bold;*/
 	line-height: 1.35;
@@ -133,7 +133,7 @@ nav.main-nav a {
 
 }
 nav.main-nav a.cta {
-	background: #5badf0;
+	background: #009688;
 	color: #fff;
 	margin-left: 12px;
 }
@@ -165,11 +165,11 @@ a,
 #post-list li:hover .dates,
 #title:hover {
 	text-decoration: none;
-	color: #5badf0;
-	color: #5694f1;
+	color: #009688;
+	color: #009688;
 }
 
-p a { color: #5694f1; }
+p a { color: #009688; }
 
 /*Transitions*/
 a,
@@ -595,7 +595,7 @@ h2.month {
 
 #post-list.archive.readmore a{
 	font: 400 16px/1.6 "Helvetica Neue",helvetica,Arial,sans-serif;
-	color: #5694f1;
+	color: #009688;
 }
 
 #post-list.archive.readmore a:hover{

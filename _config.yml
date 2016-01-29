@@ -10,8 +10,8 @@ highlighter: pygments
 paginate: 20
 baseurl: /
 domain_name: 'http://alexrs.me'
-disqus: false
-disqus_shortname: 'your-disqus-shortname'
+#disqus: false
+#disqus_shortname: 'your-disqus-shortname'
 
 # Details for the RSS feed generator
 url:            'http://alexrs.me'
