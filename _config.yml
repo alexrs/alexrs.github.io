@@ -4,7 +4,7 @@ meta_description: "Alejandro Rodríguez's Blog"
 
 aboutPage: true
 
-markdown: redcarpet
+markdown: kramdown
 highlighter: pygments
 
 paginate: 20
