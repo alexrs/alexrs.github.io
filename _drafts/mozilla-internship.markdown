@@ -12,6 +12,6 @@ I'm happy to anounce that this summer I will be part of the Firefox Data
 Engineering team, working with awesome people at Berlin as Intern.
 
 In a future post I will talk about the interview process and how I get
-this intership.
+this internship.
 
 Alejandro 👾.
