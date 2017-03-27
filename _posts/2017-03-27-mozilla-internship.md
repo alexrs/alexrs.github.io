@@ -9,7 +9,7 @@ This year I'm living one of the most exciting experiences of my life:
 Erasmus. And great experiences should lead to even better ones.
 
 This summer I will be part of the Firefox Data Engineering team,
-working with awesome people at Berlin as Intern, and I could't be
+working with awesome people in Berlin as Intern, and I could't be
 more excited!
 
 Alejandro 👾.
