@@ -10,6 +10,6 @@ Erasmus. And adventures should be followed by more adventures.
 
 This summer I will be part of the Firefox Data Engineering team,
 working with awesome people at Berlin as Intern, and I could't be
-more exicted!
+more excited!
 
 Alejandro 👾.
