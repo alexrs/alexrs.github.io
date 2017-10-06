@@ -9,6 +9,6 @@ profile: true
 I'm a 21 year old Computer Science student. 
 I love learning new things and travelling around the world. 
 
-You can find me on [Twitter](https://twitter.com/Alexrs95) and [Github](https://github.com/Alexrs95/) and this is my [CV](../assets/docs/CV.pdf)
+You can find me on [Twitter](https://twitter.com/Alexrs95) and [Github](https://github.com/Alexrs/) and this is my [CV](../assets/docs/CV.pdf)
 
 {% include footer.html %}
