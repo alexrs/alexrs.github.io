@@ -8,7 +8,7 @@ markdown: kramdown
 highlighter: rouge
 
 paginate: 20
-baseurl: /
+#baseurl: /
 domain_name: 'http://alexrs.me'
 #disqus: false
 #disqus_shortname: 'your-disqus-shortname'
