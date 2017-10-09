@@ -10,7 +10,13 @@
         <title>Differential Privacy and RAPPOR</title>
         
         
-          <description>&lt;h1 id=&quot;differential-privacy-and-rappor&quot;&gt;Differential Privacy and RAPPOR&lt;/h1&gt;
+          <description>&lt;p&gt;In 2007 Netflix offered a $1 million prize for a 10% improvement in its recommendation system. They also released a training
+dataset for the competing developers to train their systems. In order to protect their customer’s privacy, 
+&lt;a href=&quot;https://www.cs.utexas.edu/~shmat/shmat_oak08netflix.pdf&quot;&gt;they removed personal information and replaced IDs with random IDs&lt;/a&gt;.
+But Netflix is not the only movie-rating portal out there, there are many others such as IMDb. Researchers linked the 
+Netflix dataset with IMDb to de-anonymize the Netflix dataset using the dates on which an user rated certain movies. 
+Surprisingly, this isn’t new, although nowadays thanks to computers we have more information, and it is easier to 
+access and analyze.&lt;/p&gt;
 
 </description>
         
