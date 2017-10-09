@@ -7,6 +7,19 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Differential Privacy and RAPPOR</title>
+        
+        
+          <description>&lt;h1 id=&quot;differential-privacy-and-rappor&quot;&gt;Differential Privacy and RAPPOR&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 09 Oct 2017 13:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2017/rappor/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/rappor/</guid>
+      </item>
+    
+      <item>
         <title>Next adventure: Mozilla</title>
         
         
