@@ -2,7 +2,7 @@ name: Alejandro Rodríguez
 description: My stuff.
 meta_description: "Alejandro Rodríguez's Blog"
 
-aboutPage: true
+aboutPage: false
 
 markdown: kramdown
 highlighter: rouge
