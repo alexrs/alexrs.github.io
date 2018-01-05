@@ -36,7 +36,7 @@
 <article class="post">
     <header>
         <h1>Differential Privacy and RAPPOR</h1>
-        <h2 class="headline">October 9, 2017</h2>
+        <h2 class="headline">October 12, 2017</h2>
     </header>
     <section id="post-body">
         <p>In 2007 Netflix offered a $1 million prize for a 10% improvement in its recommendation system. They also released a training
@@ -44,10 +44,9 @@ dataset for the competing developers to train their systems. In order to protect
 <a href="https://www.cs.utexas.edu/~shmat/shmat_oak08netflix.pdf">they removed personal information and replaced IDs with random IDs</a>.
 But Netflix is not the only movie-rating portal out there, there are many others such as IMDb. Researchers linked the 
 Netflix dataset with IMDb to de-anonymize the Netflix dataset using the dates on which an user rated certain movies. 
-Surprisingly, this isn’t new, although nowadays thanks to computers we have more information, and it is easier to 
-access and analyze.</p>
+This problem isn’t new and remains an important one as today, thanks to computers, we can access larger amounts of data and process them more easily.</p>
 
-<p>In the mid 90s, The Massachusetts Group Insurance Commission (GIC) release anonymized data on state employees that 
+<p>In the mid 90s, The Massachusetts Group Insurance Commission (GIC) released anonymized data on state employees that 
 showed every hospital visit. The goal was to help researchers, and the state spent time removing all obvious identifiers 
 such as name, address and Social Security number. A graduate student started hunting for the Governor’s hospital records 
 in the GIC data. She knew that Governor Weld resided in Cambridge, Massachusetts, a city of 54,000 residents and seven ZIP 
@@ -60,7 +59,7 @@ of them were men, and of them, only he lived in his ZIP code.
 <p>So, how can we solve this problem? Personal data is already removed from the dataset, and it’s impossible to know whether 
 a dataset can be used to de-anonymize another one. Here is where <a href="https://en.wikipedia.org/wiki/Differential_privacy">Differential Privacy</a> appears.</p>
 
-<p>It formalizes the idea that a query should not reveal whether any one person is present in a dataset, much less what their 
+<p>It formalizes the idea that a query should not reveal whether anyone is present in a dataset, much less what their 
 data are. This field was defined by <a href="https://en.wikipedia.org/wiki/Cynthia_Dwork">Cynthia Dwork</a> In 2006, using work that 
 started appearing in 2003. It is based on the ideas of <a href="https://en.wikipedia.org/wiki/Randomized_response">randomized response</a>.</p>
 
@@ -89,23 +88,25 @@ by people who possess it</p>
 <p><a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/42852.pdf">RAPPOR</a> is an algorithm developed
 by Google whose main purpose is to collect data while adding random noise to guarantee Differential Privacy.</p>
 
+<p>Each user is assigned to one of \( m\) cohorts. The value to encode is passed through \( h\) hash functions to encode it into a Bloom filter, and noise is added with probabilities \( p, q, f \).</p>
+
 <p>In RAPPOR, we need to set different parameters:</p>
 
 <ul>
-  <li><strong>Size of the bloom filter, \( k \)</strong>: RAPPOR uses a <a href="https://en.wikipedia.org/wiki/Bloom_filter">bloom filter</a> 
+  <li><strong>Size of the Bloom filter, \( k \)</strong>: RAPPOR uses a <a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filter</a> 
 to report the data. When selecting the bloom filter size we should have in mind how many unique values are expected.</li>
   <li><strong>Number of hash functions, \( h \)</strong>: Bloom filters uses hash functions to encode the values.</li>
   <li><strong>Number of cohorts, \( m \)</strong>: To avoid collisions, RAPPOR divides the population into different cohorts. 
 This value must be choosen carefully. If it’s too small, collisions are still quite likely, while if it’s too large then
 each individual cohort provides insufficient signal due to its small sample size.</li>
-  <li><strong>Probabilities \( p, q, f \)</strong>: Noise is added to the bloom filter with different probabilities. This 
+  <li><strong>Probabilities \( p, q, f \)</strong>: Noise is added to the Bloom filter with different probabilities. This 
 probabilities determine the level of Differential Privacy along with the number of hash functions used.</li>
 </ul>
 
 <p><br />
 <em>Note: This is a very simplified version of RAPPOR, you shouldn’t use it in real life. For optimized implementations, <a href="https://github.com/google/rappor/">look at the original Google’s repository</a></em></p>
 
-<p>The first step is to encode the original value into the bloom filter using \( h \) hash functions.</p>
+<p>The first step is to encode the original value into the Bloom filter using \( h \) hash functions.</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">cohort</span><span class="p">,</span> <span class="n">num_hashes</span><span class="p">,</span> <span class="n">num_bloombits</span><span class="p">):</span>
     <span class="c"># create the bloom filter</span>
@@ -124,7 +125,7 @@ probabilities determine the level of Differential Privacy along with the number 
 </code></pre>
 </div>
 
-<p>This bloom filter never leaves the client. The next step is known as Permanent Randomized Response. Here the bits of the bloom filter are set to 0 or 1 with probability \( f/2 \), or remains unchanged with probability \( 1 - f \). The resulting bloom filter should be stored in the client and used in the future if the client needs to report the same value more than once.</p>
+<p>This Bloom filter never leaves the client. The next step is known as Permanent Randomized Response. Here the bits of the Bloom filter are set to 0 or 1 with probability \( f/2 \), or remains unchanged with probability \( 1 - f \). The resulting Bloom filter should be stored in the client and used in the future if the client needs to report the same value more than once.</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_prr</span><span class="p">(</span><span class="n">bloom</span><span class="p">,</span> <span class="n">prob_f</span><span class="p">):</span>
     <span class="n">rand</span> <span class="o">=</span> <span class="n">SystemRandom</span><span class="p">()</span>
@@ -141,7 +142,7 @@ probabilities determine the level of Differential Privacy along with the number 
 </code></pre>
 </div>
 
-<p>The Instantaneus Randomize Response is computed using the probabilities \( p \) and \( q \). The resulting bloom filter will have the bit in position \( i \) set to 1 with probability \( q \) if its value was 1 in the PRR, or with probability \( p \) if its value was 0. The resulting bloom filter is sent for analysis.</p>
+<p>The Instantaneus Randomize Response is computed using the probabilities \( p \) and \( q \). The resulting Bloom filter will have the bit in position \( i \) set to 1 with probability \( q \) if its value was 1 in the PRR, or with probability \( p \) if its value was 0. The resulting bloom filter is sent for analysis.</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_irr</span><span class="p">(</span><span class="n">bloom</span><span class="p">,</span> <span class="n">prob_p</span><span class="p">,</span> <span class="n">prob_q</span><span class="p">):</span>
     <span class="n">rand</span> <span class="o">=</span> <span class="n">SystemRandom</span><span class="p">()</span>
@@ -190,8 +191,8 @@ probabilities determine the level of Differential Privacy along with the number 
 <p><img src="../../assets/images/rappor.png" alt="rappor" /></p>
 <h1 id="rappor-analysis">RAPPOR analysis</h1>
 
-<p>After clients have generated their randomized response, they send it to a server.
-This server has the task to aggregate the reports and figure out which answers were actually given, and how often. 
+<p>After clients have generated their randomized responses, they send them to a server.
+This server has the task of aggregating the reports and figuring out which answers were actually given, and how often. 
 To do this, we make use of statistical techniques that are explained in the remainder of this blog post.</p>
 
 <p>The bit arrays are the only information we get from the clients. However, because of the Bloom filter, there are generally 
@@ -211,7 +212,7 @@ This is possible because we can estimate how much noise was added on average. I 
 as they help little to build intuition, but they can be found in  the original <a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/42852.pdf">RAPPOR paper</a>.</p>
 
 <p>While this approach of making estimates might sound a bit messy, it actually has a fairly good theoretical backing. 
-By the <em>law of large numbers</em>, the estimate will converge to the true counts with an increasing amount of data. 
+By the <a href="https://en.wikipedia.org/wiki/Law_of_large_numbers"><em>law of large numbers</em></a>, the estimate will converge to the true counts with an increasing amount of data. 
 This also explains one very important constraint when using differential privacy: We need a lot of users to make sense of 
 the data. The estimates will be very accurate with many users. On the other hand, we can’t control for the random noise 
 well enough if we don’t have a good amount of data.</p>
@@ -328,7 +329,7 @@ it’s not possible to detect candidate values that only occured very few times.
 them with confidence. Of course only being able to detect common values is not necessarily a bad thing as it means more 
 privacy for users that gave unusual answers.</p>
 
-<p><em>This post has been writting in collaboration with <a href="https://github.com/florian/">Florian Hartmann</a></em></p>
+<p><em>This post has been written in collaboration with <a href="https://github.com/florian/">Florian Hartmann</a></em></p>
 
     </section>
 </article>

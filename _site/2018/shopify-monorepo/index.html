@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Alejandro Rodríguez - Scaling your monorepo for an efficient CI</title>
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="My Blog" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+    
+        <a href="/"> <span class="arrow">←</span> Home </a>
+    
+    
+        
+    
+    <a target="_blank" href="https://twitter.com/Alexrs95">Twitter</a>
+    <a target="_blank" href="https://github.com/Alexrs">Github</a>
+    <a target="_blank" href="/assets/docs/resume.pdf">Résumé</a>        
+    <a class="cta" href="/feed.xml">Subscribe</a>
+</nav>
+
+  
+
+  <section id="wrapper" class="">
+    <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<article class="post">
+    <header>
+        <h1>Scaling your monorepo for an efficient CI</h1>
+        <h2 class="headline">January 5, 2018</h2>
+    </header>
+    <section id="post-body">
+        <p>At <a href="https://shopify.com">Shopify</a> we’re thinking about the idea of moving our mobile apps to a monorepo.
+This model offers several advantages compared to having multiple repositories, such as:</p>
+
+<ul>
+  <li>Atomic refactors across projects: It is possible to refactor code in different projects in a single commit.</li>
+  <li>Easier dependency management: If all logical projects are located in a single repository,
+the main apps will always use the latest version of the dependencies.</li>
+  <li>Tooling: If all the projects and dependencies lie in the same repository,
+writing tools is easier, as those tools don’t need to understand the relationships between the projects.</li>
+  <li>Easier set up: When all the apps and dependencies are located in the same repo,
+the developer just need to clone and run it, without thinking about external dependencies and versioning.</li>
+</ul>
+
+<p>Twitter, Facebook, Google or Mozilla use monorepos. But the monorepo model
+is not the solution to all and every problem, as it introduces new challenges
+that should be faced to make it scalable, efficient and fast on your Continuous Integration system.</p>
+
+<h3 id="selective-tests">Selective tests</h3>
+<p>Running all the tests for all the projects in the repository can be
+impractical depending on its size and the number of tests. Moreover,
+some projects can be penalized if the tests of a completely unrelated
+project inside the repo run slower.</p>
+
+<h3 id="different-pipelines-for-ci">Different pipelines for CI</h3>
+<p>Having multiple projects in the same repo doesn’t mean that those
+projects must be coupled. One of the problems to solve is to have
+multiple isolated projects in the same repo that can share code. If those projects share the same
+Continuous Integration pipeline file, in which all the steps for CI are declared,
+this goal is not being met.
+Most of the CI systems only allow one file in which all the steps to run in CI are declared,
+which will cause that we must invest some time developing tools to tackle this limitation, so we can
+have one pipeline for each project in the repository.</p>
+
+<h3 id="faster-git-clones">Faster git clones</h3>
+<p>Git is the most common version control system (although some companies such as Facebook or Mozilla
+use Mercurial), and it doesn’t scale well with huge repositories. We should avoid cloning the entire repository, with all
+branches, and the entire git history. Nowadays, getting parts of a repository is not possible with git, but we can
+speed up the <code class="highlighter-rouge">git clone</code> process doing a shallow clone, which will only clone the latest version of the specified branch.</p>
+
+<h3 id="parallel-pipeline-execution">Parallel pipeline execution</h3>
+<p>If we have different pipelines for each project, the next step is to execute them in parallel. It doesn’t make sense
+to execute unrelated pipelines sequentially if they don’t depend on each other. Moreover, executing only the tests
+related to the changes made will avoid executing unrelated pipelines.</p>
+
+<p>In conclusion, moving to a monorepo model is not for everyone. It makes sense
+if you have several dependencies used in different projects, the size of the
+project is increasing, and you’re finding difficulties in sharing code and keeping
+the dependencies up to date. But the migration to a monorepo model also
+entails an investment in tooling that it’s not worth for everyone.</p>
+
+<h3 id="references">References</h3>
+<ul>
+  <li><a href="https://danluu.com/monorepo/">Advantages of monolithic version control</a></li>
+  <li><a href="https://www.youtube.com/watch?v=W71BTkUbdqE">Why Google Stores Billions of Lines of Code in a Single Repository</a></li>
+</ul>
+
+    </section>
+</article>
+<footer id="post-meta" class="clearfix">
+    <a href="http://twitter.com/alexrs95">
+        <img class="avatar" src="/assets/images/avatar.png">
+        <div>
+            <span class="dark">Alejandro Rodríguez</span>
+            <span>My stuff.</span>
+        </div>
+    </a>
+
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=http://alexrs.me/2018/shopify-monorepo/ - Scaling your monorepo for an efficient CI by @alexrs95"
+target="_blank"><span class="icon-twitter"> Tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+    </section>
+</footer>
+
+<!-- Disqus comments -->
+
+
+<!-- Archive post list -->
+
+
+
+
+
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+
+
+
