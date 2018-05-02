@@ -9,12 +9,12 @@ highlighter: rouge
 
 paginate: 20
 #baseurl: /
-domain_name: 'http://alexrs.me'
+domain_name: 'https://alexrs.me'
 #disqus: false
 #disqus_shortname: 'your-disqus-shortname'
 
 # Details for the RSS feed generator
-url:            'http://alexrs.me'
+url:            'https://alexrs.me'
 author:         'Alejandro Rodríguez'
 authorTwitter:  'alexrs95'
 
