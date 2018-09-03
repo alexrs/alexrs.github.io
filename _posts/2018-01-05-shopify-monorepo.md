@@ -2,6 +2,7 @@
 title:  "Scaling your monorepo for an efficient CI"
 description: Characteristics for an effective Continuous Integration with monorepos.
 date: 2018-01-05 14:00:00
+layout: post
 ---
 At [Shopify](https://shopify.com) we’re thinking about the idea of moving our mobile apps to a monorepo.
 This model offers several advantages compared to having multiple repositories, such as:
