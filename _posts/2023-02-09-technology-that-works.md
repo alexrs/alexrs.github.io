@@ -8,8 +8,8 @@ layout: post
 I have the feeling that in the last few years, technology has become overly complex. I used to be excited about new software releases, and new devices.
 Now, I mostly wait until my laptop tells me that I have to upgrade the OS or I won't get any more security patches. 
 
-However, there are two devices I have been using recently that reminded me how exciting technology can be: [Remarkable]([url](https://remarkable.com/)) 
-and [Beeline Velo 2]([url](https://beeline.co/pages/beeline-cycling)).
+However, there are two devices I have been using recently that reminded me how exciting technology can be: [Remarkable](https://remarkable.com/)
+and [Beeline Velo 2](https://beeline.co/pages/beeline-cycling).
 
 They do one thing, but well. I don't need to charge them every day. I can't use them to procrastinate. They have a net positive impact on my life.
 
