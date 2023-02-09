@@ -4,9 +4,9 @@ title: About
 permalink: /about/
 ---
 
-I'm Alejandro Rodriguez, a Software Engineer from Madrid, Spain. I'm currently studiyng for a MSc. in Mathematical Modelling and Computation at [DTU]([url](https://www.dtu.dk/english)) in Copenhagen. I also work part time at [Unity]([url](https://unity.com/)) as a Data Engineer.
+I'm Alejandro Rodriguez, a Software Engineer from Madrid, Spain. I'm currently studiyng for a MSc. in Mathematical Modelling and Computation at [DTU](https://www.dtu.dk/english) in Copenhagen. I also work part time at [Unity]([url](https://unity.com/)) as a Data Engineer.
 
-In the past, I have done mutiple internshipts at companies like [Mozilla]([url](https://www.mozilla.org/en-US/)), [Shopify]([url](https://www.shopify.com/)), [Zendesk]([url](https://www.zendesk.com/)), and [~Facebook~ Meta]([url](https://www.facebook.com/)). I also worked full-time at Shopify.
+In the past, I have done mutiple internshipts at companies like [Mozilla](https://www.mozilla.org/en-US/), [Shopify](https://www.shopify.com/), [Zendesk](https://www.zendesk.com/), and [~Facebook~ Meta](https://www.facebook.com/). I also worked full-time at Shopify.
 
 My interests are quite broad: all computer things, food, sports, and traveling. 
 
