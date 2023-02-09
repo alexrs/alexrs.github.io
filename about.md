@@ -4,7 +4,11 @@ title: About
 permalink: /about/
 ---
 
-TBD
+I'm Alejandro Rodriguez, a Software Engineer from Madrid, Spain. I'm currently studiyng for a MSc. in Mathematical Modelling and Computation at [DTU]([url](https://www.dtu.dk/english)) in Copenhagen. I also work part time at [Unity]([url](https://unity.com/)) as a Data Engineer.
+
+In the past, I have done mutiple internshipts at companies like [Mozilla]([url](https://www.mozilla.org/en-US/)), [Shopify]([url](https://www.shopify.com/)), [Zendesk]([url](https://www.zendesk.com/)), and [~Facebook~ Meta]([url](https://www.facebook.com/)). I also worked full-time at Shopify.
+
+My interests are quite broad: all computer things, food, sports, and traveling. 
 
 <!-- This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
